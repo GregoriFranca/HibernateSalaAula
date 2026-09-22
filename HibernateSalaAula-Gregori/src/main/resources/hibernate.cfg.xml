@@ -20,6 +20,7 @@
 
         <!-- Cria/Atualiza as tabelas automaticamente no banco -->
         <property name="hibernate.hbm2ddl.auto">update</property>
+        <mapping class="com.ifc.ibirama.hibernatesalaaula.gregori.entidades" />
     </session-factory>
 </hibernate-configuration>
 
