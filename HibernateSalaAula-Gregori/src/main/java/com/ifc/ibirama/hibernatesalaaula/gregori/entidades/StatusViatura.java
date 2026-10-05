@@ -4,10 +4,48 @@
  */
 package com.ifc.ibirama.hibernatesalaaula.gregori.entidades;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
 /**
  *
  * @author aluno
  */
+@Entity
+@Table(name = "StatusViatura")
 public class StatusViatura {
+    @Column(name = "stv_id")
+    private Integer id;
+    @Column(name = "stv_descricao", length = 45, nullable = false)
+    private String descricao;
+    @Column(name = "stv_sigla", length = 5, nullable = false)
+    private String sigla;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getSigla() {
+        return sigla;
+    }
+
+    public void setSigla(String sigla) {
+        this.sigla = sigla;
+    }
+    
+    
     
 }
