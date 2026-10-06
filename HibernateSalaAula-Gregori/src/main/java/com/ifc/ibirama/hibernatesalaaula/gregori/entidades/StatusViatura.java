@@ -15,11 +15,12 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "StatusViatura")
 public class StatusViatura {
+
     @Column(name = "stv_id")
     private Integer id;
     @Column(name = "stv_descricao", length = 45, nullable = false)
     private String descricao;
-    @Column(name = "stv_sigla", length = 5, nullable = false)
+    @Column(name = "stv_sigla", unique = true, length = 5, nullable = false)
     private String sigla;
 
     public Integer getId() {
@@ -45,7 +46,26 @@ public class StatusViatura {
     public void setSigla(String sigla) {
         this.sigla = sigla;
     }
-    
-    
-    
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof StatusViatura) {
+            StatusViatura aux = (StatusViatura) obj;
+            if ((aux.getId() == null) || (aux.getSigla() == null)) {
+                return false;
+            } else {
+                if ((aux.getId().equals(this.id)) && (aux.getSigla().equals(this.sigla))) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        } else {
+            return false;
+        }
+    }
+    @Override
+    public int hashCode(){
+        return getClass().hashCode();
+    }
 }
