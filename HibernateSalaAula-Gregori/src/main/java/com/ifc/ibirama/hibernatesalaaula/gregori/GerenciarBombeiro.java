@@ -7,7 +7,6 @@ package com.ifc.ibirama.hibernatesalaaula.gregori;
 import com.ifc.ibirama.hibernatesalaaula.gregori.entidades.Bombeiro;
 import com.ifc.ibirama.hibernatesalaaula.gregori.util.HibernateUtil;
 import java.time.LocalDate;
-import java.time.Month;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
