@@ -6,13 +6,13 @@ package com.ifc.ibirama.hibernatesalaaula.gregori.entidades;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDate;
-
-
 
 /**
  *
@@ -21,6 +21,7 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "Bombeiro")
 public class Bombeiro {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "bom_id")
@@ -33,6 +34,13 @@ public class Bombeiro {
     private String nome;
     @Column(name = "bom_nome_guerra", nullable = false, unique = true, length = 45)
     private String nomeGuerra;
+    @Column(name = "bom_telefone_contato", length = 20, unique = true, nullable = false)
+    private String telefoneContato;
+    @OneToOne(mappedBy="Bombeiro", fetch=FetchType.LAZY)
+    private TelefoneContato telefone;
+    @OneToOne(mappedBy = "bombeiro")
+    
+    private Usuario usuario;
 
     public Bombeiro() {
     }
@@ -76,6 +84,15 @@ public class Bombeiro {
     public void setNomeGuerra(String nomeGuerra) {
         this.nomeGuerra = nomeGuerra;
     }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+   
 
     @Override
     public boolean equals(Object obj) {

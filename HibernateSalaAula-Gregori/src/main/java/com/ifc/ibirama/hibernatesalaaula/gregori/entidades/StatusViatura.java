@@ -64,8 +64,9 @@ public class StatusViatura {
             return false;
         }
     }
+
     @Override
-    public int hashCode(){
+    public int hashCode() {
         return getClass().hashCode();
     }
 }

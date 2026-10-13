@@ -8,16 +8,18 @@ import java.time.LocalDate;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
-    import jakarta.persistence.GeneratedValue;
-    import jakarta.persistence.GenerationType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+
 /**
  *
  * @author aluno
  */
 @Entity
-@Table(name="Viatura")
+@Table(name = "Viatura")
 public class Viatura {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "via_id")
@@ -70,7 +72,8 @@ public class Viatura {
     public void setKm(Integer km) {
         this.km = km;
     }
-   @Override
+
+    @Override
     public boolean equals(Object obj) {
         if (obj instanceof Viatura) {
             Viatura aux = (Viatura) obj;
@@ -83,9 +86,9 @@ public class Viatura {
             return false;
         }
     }
-    
+
     @Override
-    public int hashCode(){
+    public int hashCode() {
         return getClass().hashCode();
     }
 }
