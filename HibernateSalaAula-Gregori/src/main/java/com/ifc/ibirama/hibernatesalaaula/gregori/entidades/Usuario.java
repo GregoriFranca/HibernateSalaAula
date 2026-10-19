@@ -71,7 +71,7 @@ public class Usuario {
     public boolean equals(Object obj) {
         if (obj instanceof Usuario) {
             Usuario aux = (Usuario) obj;
-            if ((aux.getId().equals(this.id)) && (aux.getId().equals(this.id))) {
+            if ((aux.getId() != null) && (aux.getLogin()!= null) && (aux.getSenha() != null)) {
                 return true;
             } else {
                 return false;

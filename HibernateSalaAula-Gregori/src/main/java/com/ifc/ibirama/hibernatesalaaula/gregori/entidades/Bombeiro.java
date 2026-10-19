@@ -10,10 +10,14 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDate;
-
+import java.util.HashSet;
+import java.util.Set;
 /**
  *
  * @author aluno
@@ -34,14 +38,14 @@ public class Bombeiro {
     private String nome;
     @Column(name = "bom_nome_guerra", nullable = false, unique = true, length = 45)
     private String nomeGuerra;
-    @Column(name = "bom_telefone_contato", length = 20, unique = true, nullable = false)
-    private String telefoneContato;
-    @OneToOne(mappedBy="Bombeiro", fetch=FetchType.LAZY)
-    private TelefoneContato telefone;
     @OneToOne(mappedBy = "bombeiro")
-    
     private Usuario usuario;
-
+    @OneToMany(mappedBy = "bombeiro")
+    private Set<TelefoneContato> telefone = new HashSet<TelefoneContato>();
+    @ManyToMany
+    JointTable(name = "Bombeiro_has_Patente"),joinColumns = @JoinColumn(name = "bom_id"),inverseJoinColumns = @JoinColumn(name = "pat_id");
+    private Set<Patente> patente = new HashSet<Patente>();
+    
     public Bombeiro() {
     }
 
@@ -92,6 +96,23 @@ public class Bombeiro {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
+
+    public Set<TelefoneContato> getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(Set<TelefoneContato> telefone) {
+        this.telefone = telefone;
+    }
+
+    public Set<Patente> getPatente() {
+        return patente;
+    }
+
+    public void setPatente(Set<Patente> patente) {
+        this.patente = patente;
+    }
+    
    
 
     @Override
