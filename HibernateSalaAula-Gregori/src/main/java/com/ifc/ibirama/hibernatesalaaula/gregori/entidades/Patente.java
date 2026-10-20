@@ -69,7 +69,7 @@ public class Patente {
         if(obj instanceof Patente){
             Patente aux = (Patente)obj;
             if((aux.getId()!= null) && (aux.getSigla() != null)){
-                return true;
+                return (aux.getId().equals(this.id)&&(aux.getSigla().equals(this.sigla)));
             }else{
                 return false;
             }

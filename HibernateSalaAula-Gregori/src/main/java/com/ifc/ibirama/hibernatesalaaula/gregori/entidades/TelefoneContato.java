@@ -71,7 +71,7 @@ public class TelefoneContato {
         if (obj instanceof TelefoneContato) {
             TelefoneContato aux = (TelefoneContato) obj;
             if ((aux.getId() != null) && (aux.getNumero() != null)) {
-                return true;
+                return (aux.getId().equals(this.id) && (aux.getNumero().equals(this.numero)));
             } else {
                 return false;
             }

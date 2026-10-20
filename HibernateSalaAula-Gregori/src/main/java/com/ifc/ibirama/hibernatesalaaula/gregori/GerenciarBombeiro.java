@@ -7,6 +7,7 @@ package com.ifc.ibirama.hibernatesalaaula.gregori;
 import com.ifc.ibirama.hibernatesalaaula.gregori.entidades.Bombeiro;
 import com.ifc.ibirama.hibernatesalaaula.gregori.util.HibernateUtil;
 import java.time.LocalDate;
+import java.time.Month;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -19,13 +20,15 @@ public class GerenciarBombeiro {
         Session sessao = HibernateUtil.getSessionFactory().openSession();
         
         System.out.println("Sessão estabelecida");
-        Transaction transacao = null;
         
         Bombeiro bombeiro = new Bombeiro();
         bombeiro.setCpf("12345678");
         bombeiro.setDataNascimento(LocalDate.of(1990, 2, 2));
         bombeiro.setNome("Fulano da Silva");
         bombeiro.setNomeGuerra("Silva");
+        bombeiro.setDataNascimento(LocalDate.of(2000, Month.NOVEMBER, 12));
+        
+        Transaction transacao = null;
         
         try{
             transacao = sessao.beginTransaction();

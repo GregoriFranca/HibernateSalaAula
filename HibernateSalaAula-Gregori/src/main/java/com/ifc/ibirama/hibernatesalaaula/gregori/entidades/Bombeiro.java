@@ -6,17 +6,17 @@ package com.ifc.ibirama.hibernatesalaaula.gregori.entidades;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
+//import jakarta.persistence.JoinTable;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+//import jakarta.persistence.JoinColumn;
+//import jakarta.persistence.ManyToMany;
+//import jakarta.persistence.OneToMany;
+//import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDate;
-import java.util.HashSet;
+//import java.util.HashSet;
 import java.util.Set;
 /**
  *
@@ -38,13 +38,13 @@ public class Bombeiro {
     private String nome;
     @Column(name = "bom_nome_guerra", nullable = false, unique = true, length = 45)
     private String nomeGuerra;
-    @OneToOne(mappedBy = "bombeiro")
+    /*@OneToOne(mappedBy = "bombeiro")
     private Usuario usuario;
     @OneToMany(mappedBy = "bombeiro")
     private Set<TelefoneContato> telefone = new HashSet<TelefoneContato>();
     @ManyToMany
-    JointTable(name = "Bombeiro_has_Patente"),joinColumns = @JoinColumn(name = "bom_id"),inverseJoinColumns = @JoinColumn(name = "pat_id");
-    private Set<Patente> patente = new HashSet<Patente>();
+    @JoinTable(name = "Bombeiro_has_Patente", joinColumns = @JoinColumn(name = "bom_id"),inverseJoinColumns = @JoinColumn(name = "pat_id"))
+    private Set<Patente> patente = new HashSet<Patente>();*/
     
     public Bombeiro() {
     }
@@ -89,7 +89,7 @@ public class Bombeiro {
         this.nomeGuerra = nomeGuerra;
     }
 
-    public Usuario getUsuario() {
+    /*public Usuario getUsuario() {
         return usuario;
     }
 
@@ -112,7 +112,7 @@ public class Bombeiro {
     public void setPatente(Set<Patente> patente) {
         this.patente = patente;
     }
-    
+    */
    
 
     @Override
