@@ -18,6 +18,7 @@ import jakarta.persistence.Table;
 import java.time.LocalDate;
 //import java.util.HashSet;
 import java.util.Set;
+
 /**
  *
  * @author aluno
@@ -38,6 +39,7 @@ public class Bombeiro {
     private String nome;
     @Column(name = "bom_nome_guerra", nullable = false, unique = true, length = 45)
     private String nomeGuerra;
+
     /*@OneToOne(mappedBy = "bombeiro")
     private Usuario usuario;
     @OneToMany(mappedBy = "bombeiro")
@@ -45,7 +47,7 @@ public class Bombeiro {
     @ManyToMany
     @JoinTable(name = "Bombeiro_has_Patente", joinColumns = @JoinColumn(name = "bom_id"),inverseJoinColumns = @JoinColumn(name = "pat_id"))
     private Set<Patente> patente = new HashSet<Patente>();*/
-    
+
     public Bombeiro() {
     }
 
@@ -112,18 +114,13 @@ public class Bombeiro {
     public void setPatente(Set<Patente> patente) {
         this.patente = patente;
     }
-    */
-   
-
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Bombeiro) {
             Bombeiro aux = (Bombeiro) obj;
             if ((aux.getId() != null) || (aux.getCpf() != null)) {
-                if (aux.getId().equals(this.id) && (aux.getCpf().equals(this.cpf))) {
-                    return true;
-                }
-                return false;
+                return (aux.getId().equals(this.id) && (aux.getCpf().equals(this.cpf)));
             } else {
                 return false;
             }
