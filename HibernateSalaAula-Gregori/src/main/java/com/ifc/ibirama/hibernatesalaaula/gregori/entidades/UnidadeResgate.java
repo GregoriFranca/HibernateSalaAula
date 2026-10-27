@@ -45,7 +45,7 @@ public class UnidadeResgate {
         if(obj instanceof UnidadeResgate){
             UnidadeResgate aux = (UnidadeResgate)obj;
             if(aux.getId()!= null){
-                return(aux.getId().equals(id));
+                return(aux.getId().equals(this.id));
             }else{
                 return false;
             }

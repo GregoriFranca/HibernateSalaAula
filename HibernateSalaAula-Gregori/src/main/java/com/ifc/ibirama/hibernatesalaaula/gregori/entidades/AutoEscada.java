@@ -61,7 +61,7 @@ public class AutoEscada {
         if (obj instanceof AutoEscada) {
             AutoEscada aux = (AutoEscada) obj;
             if (aux.getId() != null) {
-                return (aux.getId().equals(id));
+                return (aux.getId().equals(this.id));
             } else {
                 return false;
             }

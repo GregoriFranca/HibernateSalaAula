@@ -72,7 +72,7 @@ public class Usuario {
         if (obj instanceof Usuario) {
             Usuario aux = (Usuario) obj;
             if ((aux.getId() != null) && (aux.getLogin()!= null) && (aux.getSenha() != null)) {
-                return true;
+                return ((aux.getId().equals(this.id)) && (aux.getLogin().equals(this.login)) && (aux.getSenha().equals(this.senha)));
             } else {
                 return false;
             }

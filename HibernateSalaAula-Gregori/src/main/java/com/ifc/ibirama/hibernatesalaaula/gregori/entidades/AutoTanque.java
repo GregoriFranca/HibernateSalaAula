@@ -4,6 +4,7 @@
  */
 package com.ifc.ibirama.hibernatesalaaula.gregori.entidades;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,4 +20,42 @@ import jakarta.persistence.Table;
 public class AutoTanque {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "aut_id")
+    private Integer id;
+    @Column(name = "aut_litragem", nullable = false)
+    private Integer litragem;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getLitragem() {
+        return litragem;
+    }
+
+    public void setLitragem(Integer litragem) {
+        this.litragem = litragem;
+    }
+    
+    @Override
+    public boolean equals(Object obj){
+        if(obj instanceof AutoTanque){
+            AutoTanque aux = (AutoTanque)obj;
+            if(aux.getId() != null){
+                return(aux.getId().equals(this.id));
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
+    @Override
+    public int hashCode(){
+        return getClass().hashCode();
+    }
 }
