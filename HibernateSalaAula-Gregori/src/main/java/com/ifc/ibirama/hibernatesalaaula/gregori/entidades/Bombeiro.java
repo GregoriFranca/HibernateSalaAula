@@ -13,7 +13,7 @@ import jakarta.persistence.Id;
 //import jakarta.persistence.JoinColumn;
 //import jakarta.persistence.ManyToMany;
 //import jakarta.persistence.OneToMany;
-//import jakarta.persistence.OneToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDate;
 //import java.util.HashSet;
@@ -39,9 +39,9 @@ public class Bombeiro {
     @Column(name = "bom_nome_guerra", nullable = false, unique = true, length = 45)
     private String nomeGuerra;
 
-    /*@OneToOne(mappedBy = "bombeiro")
+    @OneToOne(mappedBy = "bombeiro")
     private Usuario usuario;
-    @OneToMany(mappedBy = "bombeiro")
+    /*@OneToMany(mappedBy = "bombeiro")
     private Set<TelefoneContato> telefone = new HashSet<TelefoneContato>();
     @ManyToMany
     @JoinTable(name = "Bombeiro_has_Patente", joinColumns = @JoinColumn(name = "bom_id"),inverseJoinColumns = @JoinColumn(name = "pat_id"))
@@ -90,7 +90,7 @@ public class Bombeiro {
         this.nomeGuerra = nomeGuerra;
     }
 
-    /*public Usuario getUsuario() {
+    public Usuario getUsuario() {
         return usuario;
     }
 
@@ -98,7 +98,7 @@ public class Bombeiro {
         this.usuario = usuario;
     }
 
-    public Set<TelefoneContato> getTelefone() {
+    /*public Set<TelefoneContato> getTelefone() {
         return telefone;
     }
 
