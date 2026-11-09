@@ -4,6 +4,7 @@
  */
 package com.ifc.ibirama.hibernatesalaaula.gregori.entidades;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 //import jakarta.persistence.JoinTable;
@@ -39,7 +40,7 @@ public class Bombeiro {
     @Column(name = "bom_nome_guerra", nullable = false, unique = true, length = 45)
     private String nomeGuerra;
 
-    @OneToOne(mappedBy = "bombeiro")
+    @OneToOne(mappedBy = "bombeiro", cascade = CascadeType.ALL)
     private Usuario usuario;
     /*@OneToMany(mappedBy = "bombeiro")
     private Set<TelefoneContato> telefone = new HashSet<TelefoneContato>();

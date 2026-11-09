@@ -22,25 +22,27 @@ public class GerenciarBombeiro {
         
         System.out.println("Sessão estabelecida");
         
-        Bombeiro bombeiro = new Bombeiro();
-        bombeiro.setCpf("10955221919");
-        bombeiro.setDataNascimento(LocalDate.of(1990, 2, 2));
-        bombeiro.setNome("Fulano da Silva");
-        bombeiro.setNomeGuerra("Silva");
-        bombeiro.setDataNascimento(LocalDate.of(2000, Month.NOVEMBER, 12));
+        Bombeiro bombeiro01 = new Bombeiro();
+        bombeiro01.setCpf("10955221919");
+        bombeiro01.setDataNascimento(LocalDate.of(1990, 2, 2));
+        bombeiro01.setNome("Fulano da Silva");
+        bombeiro01.setNomeGuerra("Silva");
+        bombeiro01.setDataNascimento(LocalDate.of(2000, Month.NOVEMBER, 12));
         
-        Usuario usuario = new Usuario();
-        usuario.setLogin("beltrano.silva");
-        usuario.setSenha("12345");
-        bombeiro.setUsuario(usuario);
-        usuario.setBombeiro(bombeiro);
+        Usuario usuario01 = new Usuario();
+        usuario01.setLogin("beltrano.silva");
+        usuario01.setSenha("12345");
+        
+        bombeiro01.setUsuario(usuario01);
+        usuario01.setBombeiro(bombeiro01);
         
         Transaction transacao = null;
         
         try{
             transacao = sessao.beginTransaction();
             
-            sessao.persist(bombeiro);
+            sessao.persist(bombeiro01);
+            //sessao.persist(usuario01);
             
             transacao.commit();
             System.out.println("Bombeiro 'salvo'");

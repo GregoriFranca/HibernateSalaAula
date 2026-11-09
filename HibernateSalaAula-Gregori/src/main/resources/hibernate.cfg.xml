@@ -22,6 +22,7 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
         <mapping class="com.ifc.ibirama.hibernatesalaaula.gregori.entidades.Bombeiro" />
 <!--        <mapping class="com.ifc.ibirama.hibernatesalaaula.gregori.entidades" />-->
+        <mapping class="com.ifc.ibirama.hibernatesalaaula.gregori.entidades.Usuario"/>
     </session-factory>
 </hibernate-configuration>
 

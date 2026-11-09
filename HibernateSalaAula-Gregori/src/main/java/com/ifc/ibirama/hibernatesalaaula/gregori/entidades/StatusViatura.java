@@ -26,6 +26,9 @@ public class StatusViatura {
     private String descricao;
     @Column(name = "stv_sigla", unique = true, length = 5, nullable = false)
     private String sigla;
+    
+    public StatusViatura(){
+    }
 
     public Integer getId() {
         return id;

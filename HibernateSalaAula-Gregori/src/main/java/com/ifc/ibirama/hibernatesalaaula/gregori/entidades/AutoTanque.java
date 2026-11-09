@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 
 /**
@@ -17,13 +18,17 @@ import jakarta.persistence.Table;
  */
 @Entity
 @Table(name = "AutoTanque")
-public class AutoTanque {
+@PrimaryKeyJoinColumn(name = "id")
+public class AutoTanque extends Viatura{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "aut_id")
     private Integer id;
     @Column(name = "aut_litragem", nullable = false)
     private Integer litragem;
+    
+    public AutoTanque(){
+    }
 
     public Integer getId() {
         return id;

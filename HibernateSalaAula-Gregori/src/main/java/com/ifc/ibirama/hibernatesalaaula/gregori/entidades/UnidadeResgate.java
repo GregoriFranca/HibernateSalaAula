@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 
 /**
@@ -17,13 +18,17 @@ import jakarta.persistence.Table;
  */
 @Entity
 @Table(name = "UnidadeResgate")
-public class UnidadeResgate {
+@PrimaryKeyJoinColumn(name = "id")
+public class UnidadeResgate extends Viatura{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "unr_id")
     private Integer id;
     @Column(name = "unr_capacidade", nullable = false)
     private Integer capacidade;
+    
+    public UnidadeResgate(){        
+    }
 
     public Integer getId() {
         return id;

@@ -33,6 +33,8 @@ public class Usuario {
     @JoinColumn(name = "bom_id", unique = true)
     private Bombeiro bombeiro;
 
+    public Usuario(){        
+    }
     
     public Integer getId() {
         return id;

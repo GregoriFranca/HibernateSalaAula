@@ -33,6 +33,9 @@ public class TelefoneContato {
     @JoinColumn(name = "bom_id", unique = true)
     private Bombeiro bombeiro;
     
+    public TelefoneContato(){        
+    }
+    
     public Integer getId() {
         return id;
     }

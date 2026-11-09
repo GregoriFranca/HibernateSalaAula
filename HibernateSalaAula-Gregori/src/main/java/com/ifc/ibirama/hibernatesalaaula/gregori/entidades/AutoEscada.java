@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 //import jakarta.persistence.JoinColumn;
 //import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -20,7 +21,8 @@ import jakarta.persistence.Table;
  */
 @Entity
 @Table(name = "AutoEscada")
-public class AutoEscada {
+@PrimaryKeyJoinColumn(name = "id")
+public class AutoEscada extends Viatura{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,6 +33,9 @@ public class AutoEscada {
     /*@OneToOne
     @JoinColumn(name = "via_id", unique = true)
     private Viatura viatura;*/
+    
+    public AutoEscada(){        
+    }
 
     public Integer getId() {
         return id;

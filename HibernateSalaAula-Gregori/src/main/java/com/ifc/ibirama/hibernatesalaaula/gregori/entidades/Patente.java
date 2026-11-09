@@ -31,6 +31,9 @@ public class Patente {
     private String descricao;
     @ManyToMany(mappedBy = "patente")
     private Set<Bombeiro> bombeiro = new HashSet<Bombeiro>();
+    
+    public Patente(){
+    }
 
     public Integer getId() {
         return id;

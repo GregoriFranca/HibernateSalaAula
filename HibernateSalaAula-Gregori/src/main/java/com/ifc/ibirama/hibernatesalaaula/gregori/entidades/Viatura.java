@@ -11,6 +11,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 
 /**
  *
@@ -18,7 +20,8 @@ import jakarta.persistence.Id;
  */
 @Entity
 @Table(name = "Viatura")
-public class Viatura {
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class Viatura {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,6 +35,9 @@ public class Viatura {
     private LocalDate ultimaRevisao;
     @Column(name = "via_km")
     private Integer km;
+    
+    public Viatura(){        
+    }
 
     public Integer getId() {
         return id;

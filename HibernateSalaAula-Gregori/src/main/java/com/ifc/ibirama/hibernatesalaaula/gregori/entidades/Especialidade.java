@@ -25,6 +25,9 @@ public class Especialidade {
     private Integer id;
     @Column(name = "esp_descricao", length = 20, nullable = true)
     private String descricao;
+    
+    public Especialidade(){
+    }
 
     public Integer getId() {
         return id;
